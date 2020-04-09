@@ -1,0 +1,5 @@
+在visitor2中的代码，如果需要添加压缩文件的功能。
+还是需要修改PdfFile、PPTFile、WordFile这3个类，在每个类里面在添加一个accept(Compressor compressor)的方法。
+不符合开闭原则。没有解决这个问题。
+针对这个问题，我们抽象出来一个 Visitor 接口，包含是三个命名非常通用的 visit() 重载函数，分别处理三种不同类型的资源文件。
+当我们新添加一个业务功能的时候，资源文件类不需要做任何修改，只需要修改 ToolApplication 的代码就可以了。
